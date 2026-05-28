@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for formal membership with Vashundhara Udgar Foundation Trust.">
+    <title>Apply for Trust Membership | Vashundhara Udgar Foundation Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .member-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: var(--spacing-lg);
+            margin-top: 3rem;
+            align-items: start;
+        }
+        .member-info-box {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .info-card-premium {
+            background: var(--color-bg-white);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .info-card-premium h3 {
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .info-card-premium ul {
+            list-style: none;
+            padding: 0;
+        }
+        .info-card-premium ul li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--color-text-dark);
+        }
+        .info-card-premium ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A3222' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+        .member-form-card {
+            background: var(--color-bg-white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.85rem 1rem;
+            border: 1.5px solid #eee;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            background-color: var(--color-bg-light);
+            transition: all var(--transition-fast);
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--color-primary);
+            background-color: white;
+            outline: none;
+            box-shadow: 0 0 10px rgba(114, 39, 24, 0.08);
+        }
+        @media (max-width: 992px) {
+            .member-layout-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .member-form-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px;">
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="agenda.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="registration.html" class="nav-link active">Registration <span class="dropdown-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: inline-block; margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="partner.html">Partner</a></li>
+                            <li><a href="member.html">Member</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="transparency.html" class="nav-link">Transparency</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Donate</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner (Identical Layout to other subpages) -->
+    <section class="inner-page-hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/mission.png" alt="Apply for Trust Membership" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-subtitle animate-up">FORMAL TRUST INVOLVEMENT</span>
+            <h1 class="hero-title animate-up delay-1 text-gradient" style="background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Member Desk</h1>
+            <p class="hero-desc animate-up delay-2">Apply for formal trust membership to support VUFT operational governance, campaign audits, and regional expansion structures.</p>
+            <div class="hero-buttons animate-up delay-3">
+                <a href="#member-form-section" class="btn btn-primary btn-lg">Member Application Form</a>
+                <a href="about.html#people" class="btn btn-outline btn-lg" style="background: rgba(0,0,0,0.5);">About Our Leadership</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Introduction Banner -->
+    <section class="section about-banner" style="background-color: var(--color-primary-dark); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Trust, Integrity, and Values &rarr;</h2>
+                <p style="font-size: 1.1rem; max-width: 900px; color: rgba(255, 255, 255, 0.9);">Our registered general members serve as our foundational pillar of trust, holding regular review audits and aligning grassroots activities with our core constitution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Member Panel & Form -->
+    <section class="section" id="member-form-section">
+        <div class="container">
+            <div class="member-layout-grid">
+                <!-- Info Cards -->
+                <div class="member-info-box animate-on-scroll delay-1">
+                    <div class="info-card-premium">
+                        <h3>Membership Criteria</h3>
+                        <ul>
+                            <li><strong>Grassroots Loyalty:</strong> Commitment to helping rural communities integrate IT tech and agroforestry systems.</li>
+                            <li><strong>Absolute Transparency:</strong> Support strict audit compliance indices and auditable operational checks.</li>
+                            <li><strong>Governance Contribution:</strong> Participate in annual review assemblies and general advisory forums.</li>
+                            <li><strong>Active Advocacy:</strong> Help propagate natural conservation practices and digital skills across regions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Application Form -->
+                <div class="member-form-card animate-on-scroll delay-2">
+                    <h3 style="color: var(--color-primary-dark); font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);">
+                            <path d="M14 2H6a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        Membership Application
+                    </h3>
+                    <form action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mem-name">Full Name *</label>
+                                <input type="text" id="mem-name" name="mem-name" placeholder="Priya Sharma" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mem-prof">Profession *</label>
+                                <input type="text" id="mem-prof" name="mem-prof" placeholder="Agronomist, Software Engineer" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mem-email">Email Address *</label>
+                                <input type="email" id="mem-email" name="mem-email" placeholder="priya@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mem-phone">Phone Number *</label>
+                                <input type="tel" id="mem-phone" name="mem-phone" placeholder="+91 99999 77777" required>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label for="mem-address">Postal / Residential Address *</label>
+                            <textarea id="mem-address" name="mem-address" rows="3" placeholder="Enter your full mailing address..." required></textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label for="mem-intent">Describe your alignment with the foundation's core vision *</label>
+                            <textarea id="mem-intent" name="mem-intent" rows="4" placeholder="How do you plan to actively participate in general governance or regional operations?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Membership Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo"><img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px; filter: brightness(0) invert(1);"></a>
+                <p style="margin-top: 1rem;">Empowering Communities, Restoring Nature.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="partner.html">Partner</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <p>Subscribe for updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-outline">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Vashundhara Udgar Foundation Trust. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

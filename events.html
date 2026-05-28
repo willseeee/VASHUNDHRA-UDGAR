@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join VUFT upcoming events, workshops, tree plantation drives, and technology skill sessions.">
+    <title>Events & Campaigns | Vashundhara Udgar Foundation Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Events CSS Grid & Layout */
+        .events-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: 3rem;
+        }
+        
+        .events-main {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .event-main-card {
+            background: var(--color-bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            transition: all var(--transition-normal);
+        }
+        .event-main-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .event-card-date-badge {
+            background-color: var(--color-primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            min-width: 140px;
+            text-align: center;
+        }
+        .event-badge-day {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            line-height: 1;
+        }
+        .event-badge-month {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+        .event-card-details {
+            padding: 2rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .event-meta-info {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 600;
+        }
+        .event-meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .event-main-title {
+            font-size: 1.5rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 0.75rem;
+        }
+        .event-main-desc {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--color-text-dark);
+            margin-bottom: 1.25rem;
+        }
+        
+        /* Event Sidebar */
+        .event-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .sidebar-widget {
+            background: var(--color-bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+            text-align: left;
+        }
+        .widget-title {
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+        .sidebar-links {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-links li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+        .sidebar-links li:last-child {
+            border-bottom: none;
+        }
+        .sidebar-links a {
+            color: var(--color-text-dark);
+            transition: color var(--transition-fast);
+        }
+        .sidebar-links a:hover {
+            color: var(--color-primary);
+        }
+        
+        /* Past Events Grid */
+        .past-events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: 3rem;
+        }
+        .past-event-card {
+            background: var(--color-bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+            text-align: left;
+            transition: all var(--transition-normal);
+        }
+        .past-event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .past-event-img-wrapper {
+            height: 180px;
+            overflow: hidden;
+        }
+        .past-event-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .past-event-content {
+            padding: 1.5rem;
+        }
+        .past-event-date {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .past-event-title {
+            font-size: 1.2rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        .past-event-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 992px) {
+            .events-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            .past-events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .event-main-card {
+                flex-direction: column;
+            }
+            .event-card-date-badge {
+                padding: 1rem;
+                min-width: auto;
+            }
+            .past-events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px;">
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="agenda.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="registration.html" class="nav-link">Registration <span class="dropdown-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: inline-block; margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="partner.html">Partner</a></li>
+                            <li><a href="member.html">Member</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link active">Events</a></li>
+                    <li class="nav-item"><a href="transparency.html" class="nav-link">Transparency</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Donate</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner (Identical Layout to index.html / projects.html) -->
+    <section class="inner-page-hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/mission.png" alt="Tree plantation and IT learning events" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-subtitle animate-up">VUFT ON-GROUND MOVEMENTS</span>
+            <h1 class="hero-title animate-up delay-1 text-gradient" style="background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Events & campaigns</h1>
+            <p class="hero-desc animate-up delay-2">Join hands in our tree plantation campaigns, rural skill development camps, and community-led climate action forums.</p>
+            <div class="hero-buttons animate-up delay-3">
+                <a href="#upcoming-campaigns" class="btn btn-primary btn-lg">View Campaigns</a>
+                <a href="volunteer.html" class="btn btn-outline btn-lg" style="background: rgba(0,0,0,0.5);">Register as Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Introduction Banner (Identical layout to index.html About Banner) -->
+    <section class="section about-banner" style="background-color: var(--color-primary-dark); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Be a Catalyst for Change &rarr;</h2>
+                <p style="font-size: 1.1rem; max-width: 900px; color: rgba(255, 255, 255, 0.9);">Our events bring experts, community leaders, and passionate volunteers together to solve real climate and technology access hurdles on the ground.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Upcoming Events Layout (Responsive Grid / Sidebar) -->
+    <section class="section" id="upcoming-campaigns">
+        <div class="container">
+            <h2 class="text-center animate-on-scroll text-gradient">Upcoming Campaigns</h2>
+            <p class="text-center animate-on-scroll delay-1" style="max-width: 600px; margin: 0 auto 3rem;">Register your spot or sign up as a local field volunteer for our upcoming programs.</p>
+            
+            <div class="events-container">
+                <!-- Left side: Main Events List -->
+                <div class="events-main animate-on-scroll delay-1">
+                    <!-- Event Card 1 -->
+                    <div class="event-main-card">
+                        <div class="event-card-date-badge">
+                            <span class="event-badge-day">15</span>
+                            <span class="event-badge-month">June</span>
+                        </div>
+                        <div class="event-card-details">
+                            <div class="event-meta-info">
+                                <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; display: inline-block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>50+ Villages Focus</span>
+                                <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; display: inline-block;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>8:00 AM - 4:00 PM</span>
+                            </div>
+                            <h3 class="event-main-title">Massive Sapling & Tree Plantation Campaign</h3>
+                            <p class="event-main-desc">Join our team, local panchayats, and farmers to plant over 10,000 fruit-bearing and native tree saplings to bolster regional agroforestry and nature health.</p>
+                            <a href="volunteer.html" class="btn btn-primary">Sign Up to Volunteer</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Event Card 2 -->
+                    <div class="event-main-card">
+                        <div class="event-card-date-badge" style="background-color: var(--color-secondary);">
+                            <span class="event-badge-day">10</span>
+                            <span class="event-badge-month">July</span>
+                        </div>
+                        <div class="event-card-details">
+                            <div class="event-meta-info">
+                                <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; display: inline-block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>VUFT Central IT Lab</span>
+                                <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; display: inline-block;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>10:00 AM - 1:00 PM</span>
+                            </div>
+                            <h3 class="event-main-title">Women's IT Center Inauguration & Seminar</h3>
+                            <p class="event-main-desc">Launching our newly expanded Rural IT Learning Center. We'll hold introductory seminars on coding paradigms, basic web design, and digital freelancing modules.</p>
+                            <a href="registration.html" class="btn btn-primary">Reserve a Seat</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right side: Sidebar Info Widgets -->
+                <div class="event-sidebar animate-on-scroll delay-2">
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">General Enquiries</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 1rem;">Have questions regarding campaign locations, travel arrangements, or accommodation for volunteers?</p>
+                        <a href="contact.html" style="color: var(--color-primary); font-weight: 700;">Get in touch &rarr;</a>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">CSR Adoptive Events</h4>
+                        <ul class="sidebar-links">
+                            <li><a href="partner.html">Adopt a local plantation drive</a></li>
+                            <li><a href="volunteer.html">Sponsor an IT learning seminar</a></li>
+                            <li><a href="partner.html">Partner for agriculture field days</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Past Events Grid (Stunning Columns) -->
+    <section class="section" style="background-color: var(--color-bg-light);">
+        <div class="container text-center">
+            <h2 class="animate-on-scroll text-gradient">Past Campaigns & Achievements</h2>
+            <p class="animate-on-scroll delay-1" style="max-width: 600px; margin: 0 auto 3rem;">A look at our past community movements and successful rural deployments.</p>
+            
+            <div class="past-events-grid animate-on-scroll delay-2">
+                <!-- Card 1 -->
+                <div class="past-event-card">
+                    <div class="past-event-img-wrapper">
+                        <img src="assets/images/project1.png" alt="Plantation camp">
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">March 2026</span>
+                        <h3 class="past-event-title">Eco Restoration Day 2026</h3>
+                        <p class="past-event-desc">Planted 5,000 native bushes and structured water check-dams in collaboration with corporate CSR partners.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="past-event-card">
+                    <div class="past-event-img-wrapper">
+                        <img src="assets/images/project2.png" alt="Farmer meet">
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">January 2026</span>
+                        <h3 class="past-event-title">Organic Farmers Meet & Field Day</h3>
+                        <p class="past-event-desc">Brought 150+ regional farmers together to share techniques on bio-pesticides and natural crop nutrition.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="past-event-card">
+                    <div class="past-event-img-wrapper">
+                        <img src="assets/images/project3.png" alt="Youth graduation">
+                    </div>
+                    <div class="past-event-content">
+                        <span class="past-event-date">December 2025</span>
+                        <h3 class="past-event-title">Rural Youth Digital Graduation</h3>
+                        <p class="past-event-desc">Inaugurated diplomas for 85 rural students completing their basic web operations and office suites training.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Identical structure to index.html / projects.html / agenda.html) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo"><img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px; filter: brightness(0) invert(1);"></a>
+                <p style="margin-top: 1rem;">Empowering Communities, Restoring Nature.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="partner.html">Partner</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <p>Subscribe for updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-outline">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Vashundhara Udgar Foundation Trust. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

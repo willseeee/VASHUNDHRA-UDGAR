@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with VUFT - Address, phone, emails, and online query submission for partnerships.">
+    <title>Contact Us | Vashundhara Udgar Foundation Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact Page Custom Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-lg);
+            margin-top: 3rem;
+            align-items: start;
+        }
+        
+        .contact-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .contact-info-card {
+            background: var(--color-bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        .contact-icon-wrapper {
+            background-color: var(--color-primary-dark);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 50px;
+            min-height: 50px;
+        }
+        .contact-card-text h4 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        .contact-card-text p {
+            font-size: 0.95rem;
+            color: var(--color-text-dark);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Contact Form Styles */
+        .contact-form-card {
+            background: var(--color-bg-white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .contact-form-title {
+            color: var(--color-primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+        .form-group input, .form-group textarea {
+            padding: 0.85rem 1rem;
+            border: 1.5px solid #eee;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            background-color: var(--color-bg-light);
+            transition: all var(--transition-fast);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--color-primary);
+            background-color: white;
+            outline: none;
+            box-shadow: 0 0 10px rgba(114, 39, 24, 0.08);
+        }
+        
+        /* Map Section Styles */
+        .map-section {
+            margin-top: var(--spacing-xl);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 450px;
+            width: 100%;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .contact-form-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px;">
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="agenda.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="registration.html" class="nav-link">Registration <span class="dropdown-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: inline-block; margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="partner.html">Partner</a></li>
+                            <li><a href="member.html">Member</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="transparency.html" class="nav-link">Transparency</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Donate</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner (Identical Layout to index.html / projects.html / events.html) -->
+    <section class="inner-page-hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/mission.png" alt="NGO Office Contact Support" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-subtitle animate-up">CONNECT WITH OUR OFFICE</span>
+            <h1 class="hero-title animate-up delay-1 text-gradient" style="background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Contact us</h1>
+            <p class="hero-desc animate-up delay-2">Reach out for corporate CSR alignments, volunteer registrations, media inquiries, or general field operations questions.</p>
+            <div class="hero-buttons animate-up delay-3">
+                <a href="#contact-details" class="btn btn-primary btn-lg">Contact Options</a>
+                <a href="partner.html" class="btn btn-outline btn-lg" style="background: rgba(0,0,0,0.5);">Become a Partner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Introduction Banner (Identical layout to index.html About Banner) -->
+    <section class="section about-banner" style="background-color: var(--color-primary-dark); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Open Communication &rarr;</h2>
+                <p style="font-size: 1.1rem; max-width: 900px; color: rgba(255, 255, 255, 0.9);">We welcome donors, visitors, and volunteers at our central trust office and regional agricultural centers anytime. Our lines are always open.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Contact Form & Info Cards Grid -->
+    <section class="section" id="contact-details">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left Column: Info Cards -->
+                <div class="contact-info-panel animate-on-scroll delay-1">
+                    <!-- Phone Card -->
+                    <div class="contact-info-card">
+                        <div class="contact-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <h4>Phone & Hotlines</h4>
+                            <p>+91 98765 43210 (General)</p>
+                            <p>+91 98765 43211 (CSR Partnership Office)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Email Card -->
+                    <div class="contact-info-card">
+                        <div class="contact-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <h4>Email Communications</h4>
+                            <p>info@vashundharaudgar.org</p>
+                            <p>partner@vashundharaudgar.org</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Address Card -->
+                    <div class="contact-info-card">
+                        <div class="contact-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <h4>Registered Trust Office</h4>
+                            <p>Vashundhara Udgar Foundation Trust</p>
+                            <p>12/A Green Meadows Corridor, Sector 4,</p>
+                            <p>Varanasi, Uttar Pradesh, 221005</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Interactive Form -->
+                <div class="contact-form-card animate-on-scroll delay-2">
+                    <h3 class="contact-form-title">Send a Query Online</h3>
+                    <form action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 99999 99999">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" placeholder="CSR adoption query, volunteer request" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your detailed query here..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Embedded Google Map -->
+            <div class="map-section animate-on-scroll delay-3">
+                <!-- Using a highly detailed regional map placeholder matching our Varanasi address -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115408.24584223297!2d82.9087071060938!3d25.320901300057077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1m3!1d3606.3308828945657!2d83.00346061483861!3d25.321041983838423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1m3!1d200000!2d83.0!3d25.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1653729900000!5m2!1sen!2sin" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Identical structure to index.html / projects.html / events.html / transparency.html / agenda.html) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo"><img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px; filter: brightness(0) invert(1);"></a>
+                <p style="margin-top: 1rem;">Empowering Communities, Restoring Nature.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="partner.html">Partner</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <p>Subscribe for updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-outline">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Vashundhara Udgar Foundation Trust. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

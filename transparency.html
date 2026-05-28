@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VUFT Trust Transparency - Explore audit reports, 80G/12A registrations, and financial governance structures.">
+    <title>Transparency & Governance | Vashundhara Udgar Foundation Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Transparency Page Specific CSS Styles */
+        .doc-download-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: 3rem;
+        }
+        .doc-card {
+            background: var(--color-bg-white);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 240px;
+        }
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-accent);
+        }
+        .doc-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        .doc-title {
+            font-size: 1.3rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .doc-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .doc-btn {
+            background-color: var(--color-bg-light);
+            color: var(--color-primary);
+            border: 1.5px solid var(--color-primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all var(--transition-fast);
+            display: block;
+        }
+        .doc-card:hover .doc-btn {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        /* Organogram Flow Styles */
+        .organogram-container {
+            background: var(--color-bg-white);
+            padding: 3rem var(--spacing-md);
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+            margin-top: 3rem;
+        }
+        .organogram-level {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            flex-wrap: wrap;
+        }
+        .organogram-node {
+            background-color: var(--color-bg-light);
+            border-left: 4px solid var(--color-primary);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            min-width: 220px;
+            box-shadow: var(--shadow-sm);
+        }
+        .organogram-node h4 {
+            color: var(--color-primary-dark);
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+        .organogram-node p {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin: 0;
+            font-weight: 600;
+        }
+        .organogram-connector {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .doc-download-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .doc-download-grid {
+                grid-template-columns: 1fr;
+            }
+            .organogram-level {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px;">
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="agenda.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="registration.html" class="nav-link">Registration <span class="dropdown-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: inline-block; margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="partner.html">Partner</a></li>
+                            <li><a href="member.html">Member</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="transparency.html" class="nav-link active">Transparency</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Donate</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner (Identical Layout to index.html / projects.html) -->
+    <section class="inner-page-hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/mission.png" alt="NGO Transparency Banner" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-subtitle animate-up">ACCOUNTABILITY & TRUST</span>
+            <h1 class="hero-title animate-up delay-1 text-gradient" style="background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Transparency</h1>
+            <p class="hero-desc animate-up delay-2">We maintain complete clarity in our financial audits, operational governance, registration standings, and project deployment routes.</p>
+            <div class="hero-buttons animate-up delay-3">
+                <a href="#documents" class="btn btn-primary btn-lg">Audit & Tax Reports</a>
+                <a href="#governance" class="btn btn-outline btn-lg" style="background: rgba(0,0,0,0.5);">Governance Flow</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Introduction Banner (Identical layout to index.html About Banner) -->
+    <section class="section about-banner" style="background-color: var(--color-primary-dark); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Ethical Stewardship &rarr;</h2>
+                <p style="font-size: 1.1rem; max-width: 900px; color: rgba(255, 255, 255, 0.9);">We believe trust is earned through visual proof and verified operations. 100% of our annual accounts are thoroughly audited by certified independent bodies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Legal Documents & Audits Grid -->
+    <section class="section" id="documents">
+        <div class="container text-center">
+            <h2 class="animate-on-scroll text-gradient">Audit Files & Registrations</h2>
+            <p class="animate-on-scroll delay-1" style="max-width: 600px; margin: 0 auto 3rem;">View or download our legal registrations, tax exemption profiles, and audited financial declarations.</p>
+            
+            <div class="doc-download-grid animate-on-scroll delay-1">
+                <!-- Card 1 -->
+                <div class="doc-card">
+                    <div>
+                        <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                        <h3 class="doc-title">80G & 12A Certification</h3>
+                        <p class="doc-desc">Enables tax exemptions for individual and institutional donors supporting rural operations in India.</p>
+                    </div>
+                    <a href="#" class="doc-btn">Download 80G/12A PDF</a>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="doc-card">
+                    <div>
+                        <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        <h3 class="doc-title">FY 2025 Audit Statement</h3>
+                        <p class="doc-desc">Fully compiled, independently certified balance sheets, receipt ledgers, and operational fund trackings.</p>
+                    </div>
+                    <a href="#" class="doc-btn">Download FY25 Audit PDF</a>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="doc-card">
+                    <div>
+                        <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        <h3 class="doc-title">FCRA Registration</h3>
+                        <p class="doc-desc">Official clearance from the Ministry of Home Affairs to adopt and deploy foreign grant resources legally.</p>
+                    </div>
+                    <a href="#" class="doc-btn">Download FCRA Registration</a>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="doc-card">
+                    <div>
+                        <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        <h3 class="doc-title">VUFT Incorporation Deed</h3>
+                        <p class="doc-desc">The original constitutional document setting our operational mandates and board boundaries.</p>
+                    </div>
+                    <a href="#" class="doc-btn">Download Trust Deed</a>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="doc-card">
+                    <div>
+                        <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                            <path d="M3 3v18h18"></path>
+                            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                        </svg>
+                        <h3 class="doc-title">Annual Livelihood Report</h3>
+                        <p class="doc-desc">A detailed field summary mapping resources, trees planted, and youths trained to operational budgets.</p>
+                    </div>
+                    <a href="#" class="doc-btn">Download FY25 Annual Report</a>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="doc-card">
+                    <div>
+                        <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <h3 class="doc-title">CSR Darpan ID Profile</h3>
+                        <p class="doc-desc">Official registration matching central NITI Aayog database systems for corporate partnerships.</p>
+                    </div>
+                    <a href="#" class="doc-btn">Download Darpan ID Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Governance & Organizational Chart -->
+    <section class="section" id="governance" style="background-color: var(--color-bg-light);">
+        <div class="container text-center">
+            <h2 class="animate-on-scroll text-gradient">Governance Structure</h2>
+            <p class="animate-on-scroll delay-1" style="max-width: 600px; margin: 0 auto 3rem;">Our organizational hierarchy ensures rigorous checkups, rapid field coordination, and operational transparency.</p>
+            
+            <div class="organogram-container animate-on-scroll delay-2">
+                <!-- Level 1: Board of Trustees -->
+                <div class="organogram-level">
+                    <div class="organogram-node" style="border-left-color: var(--color-secondary);">
+                        <h4>Board of Trustees</h4>
+                        <p>President & Vice-President</p>
+                    </div>
+                </div>
+                <div class="organogram-connector">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                </div>
+                
+                <!-- Level 2: Executive Director -->
+                <div class="organogram-level">
+                    <div class="organogram-node">
+                        <h4>Executive Director</h4>
+                        <p>Governance & Strategy Leader</p>
+                    </div>
+                </div>
+                <div class="organogram-connector">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                </div>
+                
+                <!-- Level 3: Managers -->
+                <div class="organogram-level">
+                    <div class="organogram-node" style="border-left-color: var(--color-accent);">
+                        <h4>Field Operations Manager</h4>
+                        <p>Agricultural & IT Logistics</p>
+                    </div>
+                    <div class="organogram-node" style="border-left-color: var(--color-accent);">
+                        <h4>Finance & Compliance Manager</h4>
+                        <p>Audits & Regulatory Trackings</p>
+                    </div>
+                </div>
+                <div class="organogram-connector">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                </div>
+                
+                <!-- Level 4: Project Coordinators -->
+                <div class="organogram-level">
+                    <div class="organogram-node">
+                        <h4>Project Coordinators</h4>
+                        <p>Regional Centers & Agro forestry</p>
+                    </div>
+                    <div class="organogram-node">
+                        <h4>Volunteers & Local Coordinators</h4>
+                        <p>Village-level field deployments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Identical structure to index.html / projects.html / events.html / agenda.html) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo"><img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px; filter: brightness(0) invert(1);"></a>
+                <p style="margin-top: 1rem;">Empowering Communities, Restoring Nature.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="partner.html">Partner</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <p>Subscribe for updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-outline">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Vashundhara Udgar Foundation Trust. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

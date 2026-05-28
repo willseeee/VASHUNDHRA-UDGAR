@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support VUFT - Make a tax-deductible donation to fund climate-smart agriculture and rural IT centers.">
+    <title>Donate Now | Vashundhara Udgar Foundation Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Donation Page Specific Styles */
+        .donate-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: 3rem;
+            align-items: start;
+        }
+        
+        /* Left Column: Tiers & Impact */
+        .donate-impact-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: left;
+        }
+        
+        .impact-tier-card {
+            background: var(--color-bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            transition: all var(--transition-normal);
+        }
+        .impact-tier-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-accent);
+        }
+        .tier-amount {
+            background-color: var(--color-primary-dark);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 800;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            min-width: 140px;
+            text-align: center;
+            font-family: var(--font-heading);
+        }
+        .tier-details h4 {
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
+        }
+        .tier-details p {
+            font-size: 0.95rem;
+            color: var(--color-text-dark);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Right Column: Bank Details & UPI */
+        .payment-methods-card {
+            background: var(--color-bg-white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .payment-title {
+            color: var(--color-primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        .bank-details-box {
+            background-color: var(--color-bg-light);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: 2rem;
+        }
+        .bank-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+        .bank-row:last-child {
+            border-bottom: none;
+        }
+        .bank-label {
+            font-weight: 600;
+            color: var(--color-text-muted);
+        }
+        .bank-value {
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+        
+        /* 80G Alert Banner */
+        .tax-alert-banner {
+            background-color: #EBF5FB;
+            border: 1.5px solid #AED6F1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .tax-alert-icon {
+            color: #2980B9;
+            flex-shrink: 0;
+        }
+        .tax-alert-text h4 {
+            color: #21618C;
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+        .tax-alert-text p {
+            font-size: 0.9rem;
+            color: #2E4053;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .donate-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+        }
+        @media (max-width: 768px) {
+            .payment-methods-card {
+                padding: 2rem 1.5rem;
+            }
+            .impact-tier-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .tier-amount {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px;">
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="agenda.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="registration.html" class="nav-link">Registration <span class="dropdown-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: inline-block; margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Partner</a></li>
+                            <li><a href="#">Member</a></li>
+                            <li><a href="#">Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="transparency.html" class="nav-link">Transparency</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Donate</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner (Identical Layout to index.html / projects.html / events.html) -->
+    <section class="inner-page-hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/mission.png" alt="Make a Donation" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-subtitle animate-up">SUPPORT SUSTAINABLE GROWTH</span>
+            <h1 class="hero-title animate-up delay-1 text-gradient" style="background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Donate Now</h1>
+            <p class="hero-desc animate-up delay-2">Your contribution powers local afforestation, implements climate-smart farming, and sets up high-performance IT centers for rural youth.</p>
+            <div class="hero-buttons animate-up delay-3">
+                <a href="#donation-panel" class="btn btn-primary btn-lg">Donation Tiers</a>
+                <a href="transparency.html" class="btn btn-outline btn-lg" style="background: rgba(0,0,0,0.5);">View Audit Reports</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Introduction Banner (Identical layout to index.html About Banner) -->
+    <section class="section about-banner" style="background-color: var(--color-primary-dark); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Direct Grassroots Impact &rarr;</h2>
+                <p style="font-size: 1.1rem; max-width: 900px; color: rgba(255, 255, 255, 0.9);">We maintain a strict 92% direct-deployment index. This means 92% of your donated funds go directly into purchasing tree saplings, computers, and water equipment in villages.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Donation Panel & Impact Tiers Grid -->
+    <section class="section" id="donation-panel">
+        <div class="container">
+            <!-- Tax Alert Notice -->
+            <div class="tax-alert-banner animate-on-scroll">
+                <div class="tax-alert-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <div class="tax-alert-text">
+                    <h4>80G Tax Exemption Available</h4>
+                    <p>Vashundhara Udgar Foundation Trust is registered under Section 12A and 80G of the Income Tax Act. All contributions are eligible for a 50% tax deduction. Receipts will be dispatched automatically to your registered email.</p>
+                </div>
+            </div>
+
+            <div class="donate-grid">
+                <!-- Left Column: Impact Tiers -->
+                <div class="donate-impact-panel animate-on-scroll delay-1">
+                    <h3 style="color: var(--color-primary); font-size: 1.8rem; margin-bottom: 0.5rem; font-weight: 700;">How Your Contribution Helps</h3>
+                    <p style="color: var(--color-text-muted); margin-bottom: 1rem; font-size: 1.05rem;">Choose a donation level that maps directly to measurable local change in rural blocks:</p>
+
+                    <!-- Tier 1 -->
+                    <div class="impact-tier-card">
+                        <div class="tier-amount">₹1,500</div>
+                        <div class="tier-details">
+                            <h4>Plant & Support 5 Native Trees</h4>
+                            <p>Funds the procurement, organic composting, and 2 years of active guard care for 5 native saplings on marginal farm boundaries.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="impact-tier-card">
+                        <div class="tier-amount">₹4,500</div>
+                        <div class="tier-details">
+                            <h4>Equip 1 Farmer with smart training</h4>
+                            <p>Sponsors full weather-alert access, soil nutrients analysis, and organic multi-cropping seed bags for one smallholder family.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="impact-tier-card">
+                        <div class="tier-amount">₹8,000</div>
+                        <div class="tier-details">
+                            <h4>Train 1 Rural Youth in Coding</h4>
+                            <p>Sponsors a comprehensive 6-month digital literacy, AI operations, and basic code writing syllabus for one student at our Smart Learning Centers.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tier 4 -->
+                    <div class="impact-tier-card">
+                        <div class="tier-amount">₹20,000</div>
+                        <div class="tier-details">
+                            <h4>Adopt a Smart Center Workstation</h4>
+                            <p>Directly purchases one high-performance IT desktop workstation complete with full software licensing, tables, and broadband routers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Official Bank Details -->
+                <div class="payment-methods-card animate-on-scroll delay-2">
+                    <h3 class="payment-title">Direct Bank Transfer</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.5rem; line-height: 1.5;">To make a contribution directly through your net banking portal, please execute a transfer to the official trust account details listed below:</p>
+
+                    <div class="bank-details-box">
+                        <div class="bank-row">
+                            <span class="bank-label">Account Name</span>
+                            <span class="bank-value">Vashundhara Udgar Foundation Trust</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">Bank Name</span>
+                            <span class="bank-value">State Bank of India (SBI)</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">Account Number</span>
+                            <span class="bank-value">412345678901</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">IFSC Code</span>
+                            <span class="bank-value">SBIN0001234</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">Account Type</span>
+                            <span class="bank-value">Current Account</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">Branch</span>
+                            <span class="bank-value">Varanasi Main Branch</span>
+                        </div>
+                    </div>
+
+                    <div style="border-top: 1.5px solid #eee; padding-top: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-weight: 700;">Important Notification</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0;">Once your wire transfer is completed, please email the transaction receipt or reference number to <strong style="color: var(--color-text-dark);">donate@vashundharaudgar.org</strong> along with your PAN Card copy to receive the official 80G tax tax receipt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Identical structure to index.html / projects.html / events.html / agenda.html) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo"><img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px; filter: brightness(0) invert(1);"></a>
+                <p style="margin-top: 1rem;">Empowering Communities, Restoring Nature.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="registration.html">Volunteer</a></li>
+                    <li><a href="registration.html">Partner</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <p>Subscribe for updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-outline">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Vashundhara Udgar Foundation Trust. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

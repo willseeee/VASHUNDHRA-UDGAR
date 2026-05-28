@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register as a CSR Partner, Member, or Volunteer with Vashundhara Udgar Foundation Trust.">
+    <title>Get Involved & Registration | Vashundhara Udgar Foundation Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Registration Page Custom Styles */
+        .register-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .role-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .role-tab {
+            background-color: var(--color-bg-white);
+            color: var(--color-text-dark);
+            border: 1.5px solid #eee;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all var(--transition-normal);
+        }
+        .role-tab.active, .role-tab:hover {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-card {
+            background: var(--color-bg-white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        
+        .form-section-title {
+            color: var(--color-primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.85rem 1rem;
+            border: 1.5px solid #eee;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            background-color: var(--color-bg-light);
+            transition: all var(--transition-fast);
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--color-primary);
+            background-color: white;
+            outline: none;
+            box-shadow: 0 0 10px rgba(114, 39, 24, 0.08);
+        }
+        
+        /* Tab Form Visibility */
+        .register-form-panel {
+            display: none;
+        }
+        .register-form-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .form-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px;">
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="agenda.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="registration.html" class="nav-link active">Registration <span class="dropdown-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: inline-block; margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="registration.html?role=partner">Partner</a></li>
+                            <li><a href="registration.html?role=member">Member</a></li>
+                            <li><a href="registration.html?role=volunteer">Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="transparency.html" class="nav-link">Transparency</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Donate</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner (Identical Layout to other subpages) -->
+    <section class="inner-page-hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/mission.png" alt="Join VUFT Registration Banner" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-subtitle animate-up">BECOME A PART OF VUFT</span>
+            <h1 class="hero-title animate-up delay-1 text-gradient" style="background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Get Involved</h1>
+            <p class="hero-desc animate-up delay-2">Adopt our roadmap as a corporate CSR partner, register as an active general trust member, or join on-ground campaigns as a volunteer.</p>
+            <div class="hero-buttons animate-up delay-3">
+                <a href="#register-showcase" class="btn btn-primary btn-lg">Choose Your Role</a>
+                <a href="about.html" class="btn btn-outline btn-lg" style="background: rgba(0,0,0,0.5);">About VUFT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Introduction Banner -->
+    <section class="section about-banner" style="background-color: var(--color-primary-dark); color: white; padding: 3rem 0;">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Building Shared Pathways &rarr;</h2>
+                <p style="font-size: 1.1rem; max-width: 900px; color: rgba(255, 255, 255, 0.9);">Whether you represent a corporate body looking for high-end auditable CSR projects or an individual passionate about digital education or climate farming, we have a clear operational fit for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Role Selector and Forms -->
+    <section class="section" id="register-showcase">
+        <div class="container text-center">
+            <h2 class="animate-on-scroll text-gradient">Registration Desk</h2>
+            <p class="animate-on-scroll delay-1" style="max-width: 600px; margin: 0 auto 3rem;">Please select your preferred role below to configure your formal registration form:</p>
+
+            <div class="register-container">
+                <!-- Role Tabs -->
+                <div class="role-tabs animate-on-scroll delay-1">
+                    <button class="role-tab active" data-role="partner">Become a CSR Partner</button>
+                    <button class="role-tab" data-role="volunteer">Register as Volunteer</button>
+                    <button class="role-tab" data-role="member">Trust Membership</button>
+                </div>
+
+                <!-- Form Card -->
+                <div class="form-card animate-on-scroll delay-2">
+                    
+                    <!-- Panel 1: CSR Partner -->
+                    <div class="register-form-panel active" id="form-partner">
+                        <h3 class="form-section-title">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                            Corporate CSR Partnership
+                        </h3>
+                        <form action="#" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="org-name">Organization / Corporate Name *</label>
+                                    <input type="text" id="org-name" name="org-name" placeholder="Acme Corporation" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="partner-contact">Contact Person Name *</label>
+                                    <input type="text" id="partner-contact" name="partner-contact" placeholder="Dr. Ajay Mishra" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="partner-email">Official Email Address *</label>
+                                    <input type="email" id="partner-email" name="partner-email" placeholder="csr@acme.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="partner-phone">Phone / Mobile Number *</label>
+                                    <input type="tel" id="partner-phone" name="partner-phone" placeholder="+91 99999 99999" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="adopt-focus">Primary Interest Focus *</label>
+                                    <select id="adopt-focus" name="adopt-focus" required>
+                                        <option value="">Select focus area...</option>
+                                        <option value="agriculture">Climate-Smart Agriculture (Agroforestry)</option>
+                                        <option value="tech">Rural IT Smart Learning Centers</option>
+                                        <option value="livelihood">Women's Livelihood Cooperatives</option>
+                                        <option value="multi">Comprehensive Regional Adoption</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 2rem;">
+                                <label for="partner-desc">Collaboration Intent & Specific Requirements</label>
+                                <textarea id="partner-desc" name="partner-desc" rows="4" placeholder="Mention targeted geographic zones, auditable metrics or Adoption scales here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Partnership Proposal</button>
+                        </form>
+                    </div>
+
+                    <!-- Panel 2: Volunteer -->
+                    <div class="register-form-panel" id="form-volunteer">
+                        <h3 class="form-section-title">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Register as a Campaign Volunteer
+                        </h3>
+                        <form action="#" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="vol-name">Full Name *</label>
+                                    <input type="text" id="vol-name" name="vol-name" placeholder="Rahul Singh" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vol-age">Age *</label>
+                                    <input type="number" id="vol-age" name="vol-age" placeholder="24" min="15" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="vol-email">Email Address *</label>
+                                    <input type="email" id="vol-email" name="vol-email" placeholder="rahul@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vol-phone">Mobile / WhatsApp Number *</label>
+                                    <input type="tel" id="vol-phone" name="vol-phone" placeholder="+91 99999 88888" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="vol-skill">Primary Skill Offering *</label>
+                                    <select id="vol-skill" name="vol-skill" required>
+                                        <option value="">Select skill area...</option>
+                                        <option value="farming">Farming & Forestry Fieldwork</option>
+                                        <option value="it">Teaching Youth IT / Computer Literacy</option>
+                                        <option value="event">Campaign Coordination & Logistics</option>
+                                        <option value="writing">Content Writing & Media Management</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vol-avail">Weekly Availability *</label>
+                                    <select id="vol-avail" name="vol-avail" required>
+                                        <option value="">Select availability...</option>
+                                        <option value="weekends">Weekends Only</option>
+                                        <option value="weekdays">Weekdays Only</option>
+                                        <option value="flexible">Flexible / Anytime</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 2rem;">
+                                <label for="vol-reason">Why would you like to volunteer with VUFT? *</label>
+                                <textarea id="vol-reason" name="vol-reason" rows="4" placeholder="Briefly describe your passion or field experience..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Volunteer Registration</button>
+                        </form>
+                    </div>
+
+                    <!-- Panel 3: General Member -->
+                    <div class="register-form-panel" id="form-member">
+                        <h3 class="form-section-title">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                            Apply for Formal Trust Membership
+                        </h3>
+                        <form action="#" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="mem-name">Full Name *</label>
+                                    <input type="text" id="mem-name" name="mem-name" placeholder="Priya Sharma" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mem-prof">Profession *</label>
+                                    <input type="text" id="mem-prof" name="mem-prof" placeholder="Agronomist, Software Engineer" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="mem-email">Email Address *</label>
+                                    <input type="email" id="mem-email" name="mem-email" placeholder="priya@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mem-phone">Phone Number *</label>
+                                    <input type="tel" id="mem-phone" name="mem-phone" placeholder="+91 99999 77777" required>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 2rem;">
+                                <label for="mem-address">Postal / Residential Address *</label>
+                                <textarea id="mem-address" name="mem-address" rows="3" placeholder="Enter your full mailing address..." required></textarea>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 2rem;">
+                                <label for="mem-intent">Describe your alignment with the foundation's core vision *</label>
+                                <textarea id="mem-intent" name="mem-intent" rows="4" placeholder="How do you plan to actively participate in general governance or regional operations?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Membership Application</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Identical structure to other subpages) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo"><img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px; filter: brightness(0) invert(1);"></a>
+                <p style="margin-top: 1rem;">Empowering Communities, Restoring Nature.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="registration.html">Volunteer</a></li>
+                    <li><a href="registration.html">Partner</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <p>Subscribe for updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-outline">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Vashundhara Udgar Foundation Trust. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab-switching and Role query-param handler
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.role-tab');
+            const panels = document.querySelectorAll('.register-form-panel');
+            
+            const activateRole = (role) => {
+                tabs.forEach(tab => {
+                    if(tab.getAttribute('data-role') === role) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+                
+                panels.forEach(panel => {
+                    if(panel.getAttribute('id') === `form-${role}`) {
+                        panel.classList.add('active');
+                    } else {
+                        panel.classList.remove('active');
+                    }
+                });
+            };
+
+            // Switch on button click
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const role = tab.getAttribute('data-role');
+                    activateRole(role);
+                    // Update URL hash/query quietly
+                    history.pushState(null, null, `?role=${role}`);
+                });
+            });
+
+            // Parse URL Query Params on Load (e.g. ?role=volunteer)
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialRole = urlParams.get('role');
+            if (initialRole && ['partner', 'volunteer', 'member'].includes(initialRole)) {
+                activateRole(initialRole);
+            }
+        });
+    </script>
+</body>
+</html>

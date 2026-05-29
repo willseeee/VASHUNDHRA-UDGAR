@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore stories, news, and insights from Vashundhara Udgar Foundation Trust on agroforestry, IT education, and rural development.">
+    <title>Trust Blog & Stories | Vashundhara Udgar Foundation Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Blog Premium Custom Layout & Styles */
+        .blog-filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-filter-btn {
+            background-color: var(--color-bg-white);
+            color: var(--color-text-dark);
+            border: 1.5px solid #eee;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: all var(--transition-normal);
+        }
+
+        .blog-filter-btn.active, .blog-filter-btn:hover {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Horizontal Featured Post Card */
+        .featured-post-card {
+            background: var(--color-bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+            transition: all var(--transition-normal);
+        }
+
+        .featured-post-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .featured-post-img-wrapper {
+            flex: 1.2;
+            height: 420px;
+            overflow: hidden;
+        }
+
+        .featured-post-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-post-card:hover .featured-post-img-wrapper img {
+            transform: scale(1.03);
+        }
+
+        .featured-post-content {
+            flex: 1.5;
+            padding: 3rem 2.5rem 3rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .post-meta-row {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .post-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .post-meta-item svg {
+            color: var(--color-accent);
+        }
+
+        .post-category-tag {
+            background-color: var(--color-secondary);
+            color: var(--color-text-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .featured-post-title {
+            font-size: 2.2rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .featured-post-title a:hover {
+            color: var(--color-primary);
+        }
+
+        .featured-post-excerpt {
+            font-size: 1.05rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* 3-Column Grid of Posts */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .blog-card {
+            background: var(--color-bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .blog-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 2rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .blog-title a:hover {
+            color: var(--color-primary);
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .read-more-link {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .read-more-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .read-more-link:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+            .featured-post-card {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .featured-post-img-wrapper {
+                width: 100%;
+                height: 280px;
+                flex: none;
+            }
+            .featured-post-content {
+                padding: 1.5rem;
+                flex: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            .featured-post-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px;">
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="agenda.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="registration.html" class="nav-link">Registration <span class="dropdown-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: inline-block; margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="partner.html">Partner</a></li>
+                            <li><a href="member.html">Member</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="transparency.html" class="nav-link">Transparency</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="donate.html" class="btn btn-primary">Donate</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Banner (Identical Layout to projects.html / campaigns.html) -->
+    <section class="inner-page-hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/mission.png" alt="Exploring blog articles and news" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="hero-subtitle animate-up">Stories from the Ground</span>
+            <h1 class="hero-title animate-up delay-1 text-gradient" style="background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Trust Blog</h1>
+            <p class="hero-desc animate-up delay-2">Read our latest articles, field coordination updates, scientific insights, and transformation stories straight from rural communities.</p>
+        </div>
+    </section>
+
+    <!-- 2. Main Blog Content -->
+    <section class="section">
+        <div class="container">
+            
+            <!-- Featured Post Showcase -->
+            <div class="featured-post-card animate-on-scroll">
+                <div class="featured-post-img-wrapper">
+                    <img src="assets/images/mission.png" alt="Featured Post Image">
+                </div>
+                <div class="featured-post-content">
+                    <div class="post-meta-row">
+                        <span class="post-category-tag">Agroforestry</span>
+                        <div class="post-meta-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>May 28, 2026</span>
+                        </div>
+                        <div class="post-meta-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span>VUFT Team</span>
+                        </div>
+                    </div>
+                    <h2 class="featured-post-title"><a href="#">Empowering Farmers: How Agroforestry is Transforming Rural Livelihoods</a></h2>
+                    <p class="featured-post-excerpt">Discover how Vashundhara Udgar Foundation Trust integrates native wood species and high-yielding fruit crops into traditional agriculture systems. This integrated model is restoring degraded farmland soil while securing steady, double-income tracks for local village farmers.</p>
+                    <a href="#" class="read-more-link">Read Full Story <span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="blog-filter-container animate-on-scroll">
+                <button class="blog-filter-btn active" data-filter="all">All Stories</button>
+                <button class="blog-filter-btn" data-filter="agroforestry">Agroforestry</button>
+                <button class="blog-filter-btn" data-filter="technology">IT Education</button>
+                <button class="blog-filter-btn" data-filter="livelihoods">Livelihoods</button>
+                <button class="blog-filter-btn" data-filter="csr">CSR & Audits</button>
+            </div>
+
+            <!-- Grid of Blog Posts -->
+            <div class="blog-grid">
+                
+                <!-- Post 1: Soil Restoration -->
+                <div class="blog-card animate-on-scroll" data-category="agroforestry">
+                    <div class="blog-img-wrapper">
+                        <img src="assets/images/project1.png" alt="Soil Restoration">
+                    </div>
+                    <div class="blog-content">
+                        <div class="post-meta-row" style="margin-bottom: 0.5rem; gap: 0.8rem;">
+                            <span class="post-category-tag" style="background-color: var(--color-primary);">Agroforestry</span>
+                            <span style="font-size: 0.8rem;">May 24, 2026</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">Restoring Soils: The Science Behind Native Saplings</a></h3>
+                        <p class="blog-excerpt">An in-depth analysis of how planting regional native tree roots helps replenish groundwater tables, nitrogen levels, and organic soil carbon.</p>
+                        <a href="#" class="read-more-link">Read Story <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Post 2: Rural IT Labs -->
+                <div class="blog-card animate-on-scroll delay-1" data-category="technology">
+                    <div class="blog-img-wrapper">
+                        <img src="assets/images/project2.png" alt="Rural IT Labs">
+                    </div>
+                    <div class="blog-content">
+                        <div class="post-meta-row" style="margin-bottom: 0.5rem; gap: 0.8rem;">
+                            <span class="post-category-tag" style="background-color: var(--color-secondary);">IT Education</span>
+                            <span style="font-size: 0.8rem;">May 18, 2026</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">Bridging the Code Gap: IT Education in Village Schools</a></h3>
+                        <p class="blog-excerpt">Inside our rural IT learning labs where village children are gaining computer literacy and writing their first basic programming scripts.</p>
+                        <a href="#" class="read-more-link">Read Story <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Post 3: Women Livelihoods -->
+                <div class="blog-card animate-on-scroll delay-2" data-category="livelihoods">
+                    <div class="blog-img-wrapper">
+                        <img src="assets/images/project3.png" alt="Women Leaders">
+                    </div>
+                    <div class="blog-content">
+                        <div class="post-meta-row" style="margin-bottom: 0.5rem; gap: 0.8rem;">
+                            <span class="post-category-tag" style="background-color: var(--color-accent); color: var(--color-text-dark);">Livelihoods</span>
+                            <span style="font-size: 0.8rem;">May 10, 2026</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">A Resilience Tale: How Women Leaders Are Transforming Agriculture</a></h3>
+                        <p class="blog-excerpt">Meet the rural women spearheading community self-help farming groups and establishing local marketing centers for organic crops.</p>
+                        <a href="#" class="read-more-link">Read Story <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Post 4: Rainwater Harvesting -->
+                <div class="blog-card animate-on-scroll" data-category="agroforestry">
+                    <div class="blog-img-wrapper">
+                        <img src="assets/images/mission.png" alt="Rainwater Harvesting">
+                    </div>
+                    <div class="blog-content">
+                        <div class="post-meta-row" style="margin-bottom: 0.5rem; gap: 0.8rem;">
+                            <span class="post-category-tag" style="background-color: var(--color-primary);">Agroforestry</span>
+                            <span style="font-size: 0.8rem;">April 28, 2026</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">Rainwater Harvesting: Simple Structures, Massive Yields</a></h3>
+                        <p class="blog-excerpt">How constructing simple low-cost rainwater trenches and pond boundaries saves crops and orchards during hot dry summer months.</p>
+                        <a href="#" class="read-more-link">Read Story <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Post 5: CSR shifting -->
+                <div class="blog-card animate-on-scroll delay-1" data-category="csr">
+                    <div class="blog-img-wrapper">
+                        <img src="assets/images/project1.png" alt="CSR Focus">
+                    </div>
+                    <div class="blog-content">
+                        <div class="post-meta-row" style="margin-bottom: 0.5rem; gap: 0.8rem;">
+                            <span class="post-category-tag" style="background-color: var(--color-secondary);">CSR & Audits</span>
+                            <span style="font-size: 0.8rem;">April 15, 2026</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">Partnerships for the Future: Why CSR is Shifting to Rural Landscapes</a></h3>
+                        <p class="blog-excerpt">Analyzing the growing integration of corporate environmental actions with rural community livelihood projects for dual-impact results.</p>
+                        <a href="#" class="read-more-link">Read Story <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. Newsletter Subscription Block -->
+    <section class="section csr-section bg-primary-dark text-light" style="padding: var(--spacing-lg) 0;">
+        <div class="container text-center" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="text-light animate-on-scroll">Subscribe to Our Newsletter</h2>
+            <p class="animate-on-scroll delay-1" style="margin: 1rem 0 2rem; color: rgba(255, 255, 255, 0.85);">Receive monthly field stories, research logs, and direct program reports straight to your inbox.</p>
+            <form class="newsletter-form animate-on-scroll delay-2" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <input type="email" placeholder="Enter Your Email Address" required style="flex: 1; padding: 0.9rem; border-radius: 4px; border: none; font-family: var(--font-body); font-size: 0.95rem; min-width: 250px;">
+                <button type="submit" class="btn btn-primary" style="background-color: var(--color-accent); color: var(--color-text-dark); padding: 0.9rem 2rem;">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer (Identical structure to index.html / agenda.html) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo"><img src="assets/images/logo vashundra.png" alt="VUFT Logo" style="height: 60px; filter: brightness(0) invert(1);"></a>
+                <p style="margin-top: 1rem;">Empowering Communities, Restoring Nature.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="partner.html">Partner</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <p>Subscribe for updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-outline">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Vashundhara Udgar Foundation Trust. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Client-side Blog Category Filtering
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.blog-filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active class
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    blogCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || category === filterValue) {
+                            card.style.display = 'flex';
+                            card.style.opacity = '0';
+                            setTimeout(() => {
+                                card.style.transition = 'opacity 0.4s ease';
+                                card.style.opacity = '1';
+                            }, 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

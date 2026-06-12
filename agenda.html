@@ -71,6 +71,119 @@
             color: var(--color-secondary);
             font-weight: bold;
         }
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .agenda-card {
+            background: var(--color-bg-white);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+        .agenda-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            opacity: 0.8;
+        }
+        .agenda-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: rgba(114, 39, 24, 0.2);
+        }
+        .agenda-icon-wrapper {
+            background: rgba(114, 39, 24, 0.08);
+            color: var(--color-primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            transition: all var(--transition-normal);
+        }
+        .agenda-card:hover .agenda-icon-wrapper {
+            background: var(--color-primary);
+            color: var(--color-text-light);
+            transform: scale(1.1);
+        }
+        .agenda-title-text {
+            font-size: 1.3rem;
+            color: var(--color-primary-dark);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .agenda-card-desc {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+        .agenda-card.cross-cutting {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #0d442f 100%);
+            color: white;
+            border: none;
+        }
+        .agenda-card.cross-cutting::before {
+            background: linear-gradient(90deg, var(--color-accent), #ffd194);
+        }
+        .agenda-card.cross-cutting .agenda-title-text {
+            color: white;
+        }
+        .agenda-card.cross-cutting .agenda-icon-wrapper {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--color-accent);
+        }
+        .agenda-card.cross-cutting:hover .agenda-icon-wrapper {
+            background: var(--color-accent);
+            color: var(--color-secondary);
+        }
+        .cross-cutting-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .cross-cutting-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .cross-cutting-item svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: var(--color-accent);
+        }
+        @media (max-width: 992px) {
+            .agenda-card.cross-cutting {
+                grid-column: span 1;
+            }
+            .cross-cutting-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
         @media (max-width: 992px) {
             .agenda-timeline-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -147,6 +260,107 @@
             <div class="animate-on-scroll">
                 <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">The 2030 Vision &rarr;</h2>
                 <p style="font-size: 1.1rem; max-width: 900px; color: rgba(255, 255, 255, 0.9);">To systematically scale ecological restoration and socio-economic development, lifting rural communities through integrated modern capabilities and nature conservation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Agenda Pillars Grid -->
+    <section class="section" style="background-color: var(--color-bg-white); padding-bottom: 4rem;">
+        <div class="container text-center">
+            <h2 class="animate-on-scroll text-gradient">Core Agenda & Pillars</h2>
+            <p class="animate-on-scroll delay-1" style="max-width: 800px; margin: 0 auto 2rem;">Discover our priority action areas designed to foster ecological resilience, gender equality, clean health infrastructure, and advanced digital capabilities.</p>
+            
+            <div class="agenda-grid">
+                <!-- Card 1 -->
+                <div class="agenda-card animate-on-scroll">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"></path><path d="M12 6a6 6 0 0 1 6 6c0 3.314-2.686 6-6 6s-6-2.686-6-6a6 6 0 0 1 6-6z"></path><path d="M12 10a2 2 0 0 1 2 2c0 1.105-.895 2-2 2s-2-.895-2-2a2 2 0 0 1 2-2z"></path></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Regenerative Landscape Development</h3>
+                    <p class="agenda-card-desc">Reclaiming degraded soils, implementing sustainable soil health practices, and establishing community-managed green zones to restore regional biological diversity.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="agenda-card animate-on-scroll delay-1">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Agroforestry & Climate-Smart Farming</h3>
+                    <p class="agenda-card-desc">Integrating multi-tier tree planting with crop cultivation, promoting climate-resilient crop varieties, and adopting water-efficient organic cultivation methods.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="agenda-card animate-on-scroll delay-2">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"></path><path d="M17 9v13"></path><path d="M7 13v9"></path><path d="M12 5v17"></path></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Nursery Development & Green Enterprises</h3>
+                    <p class="agenda-card-desc">Creating local nurseries, generating sustainable employment, and fostering micro-enterprises centered around forestry and eco-friendly products.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="agenda-card animate-on-scroll">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Gender Inclusion & Women-Led Action</h3>
+                    <p class="agenda-card-desc">Empowering women's self-help groups to lead conservation projects, manage rural enterprise initiatives, and take key roles in environmental decisions.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="agenda-card animate-on-scroll delay-1">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"></path></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Health, Sanitation & WASH Integration</h3>
+                    <p class="agenda-card-desc">Improving clean drinking water access, implementing village-level sanitation systems, and integrating hygiene education with conservation efforts.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="agenda-card animate-on-scroll delay-2">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Food & Nutrition Security</h3>
+                    <p class="agenda-card-desc">Promoting homestead kitchen gardens, establishing seed banks, and securing access to diversified, nutrient-dense crop systems.</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="agenda-card animate-on-scroll">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Youth Leadership & Rural Innovation</h3>
+                    <p class="agenda-card-desc">Mentoring the next generation of rural community leaders, supporting grassroots technology solutions, and encouraging innovation.</p>
+                </div>
+
+                <!-- Card 8: Cross-Cutting Pillars -->
+                <div class="agenda-card cross-cutting animate-on-scroll delay-1">
+                    <div class="agenda-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3 class="agenda-title-text">Cross-Cutting Pillars</h3>
+                    <p class="agenda-card-desc" style="color: rgba(255, 255, 255, 0.85); margin-bottom: 1.5rem;">Empowering communities with essential skills and tools to participate in the modern digital economy and scale their impact:</p>
+                    
+                    <div class="cross-cutting-list">
+                        <div class="cross-cutting-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Digital Literacy, IT & Computer Education Training</span>
+                        </div>
+                        <div class="cross-cutting-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Rural Technology & Smart Learning Centers</span>
+                        </div>
+                        <div class="cross-cutting-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>IT Skill Development & Employability Programs</span>
+                        </div>
+                        <div class="cross-cutting-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>AI, Coding & Future Skills Training for Youth</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
